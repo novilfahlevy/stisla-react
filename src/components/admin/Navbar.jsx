@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavLink as RRDNavLink } from 'react-router-dom';
+
 import {
   Navbar as RSNavbar,
   // NavbarBrand,
@@ -28,11 +30,11 @@ class Navbar extends React.Component {
                 </span>
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem tag="a">
+                <DropdownItem to="/admin/profil" tag={RRDNavLink}>
                   <i className="far fa-user"></i> Profil
                 </DropdownItem>
                 <div className="dropdown-divider"></div>
-                <DropdownItem tag="a">
+                <DropdownItem to="/admin/logout" tag={RRDNavLink}>
                   <span className="text-danger">
                     <i className="fas fa-sign-out-alt"></i> Keluar
                   </span>

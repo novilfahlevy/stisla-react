@@ -11,7 +11,8 @@ class Admin extends React.Component {
   getRoutes(routes) {
     return routes
       .filter(route => route.isActive)
-      .map(({ path, layout, component }, key) => {
+      .map(({ path, layout, component, subMenu = null }, key) => {
+        if ( subMenu !== null ) return this.getRoutes(subMenu);
         return (
           <Route
             exact
