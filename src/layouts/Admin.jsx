@@ -10,7 +10,7 @@ import { sidebar as routes } from './../routes';
 class Admin extends React.Component {
   getRoutes(routes) {
     return routes
-      .filter(route => route.isActive)
+      .filter(route => route.isActive && route.layout === '/admin')
       .map(({ path, layout, component, subMenu = null }, key) => {
         if ( subMenu !== null ) return this.getRoutes(subMenu);
         return (
@@ -25,6 +25,7 @@ class Admin extends React.Component {
   }
 
   getPageName(routes) {
+    routes = routes.filter(route => route.isActive && route.layout === '/admin');
     for ( let i = 0; i < routes.length; i++ ) {
       const { name, layout, path, subMenu = null } = routes[i];
       if ( subMenu !== null ) {

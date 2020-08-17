@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NavLink as RRDNavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import {
   Navbar as RSNavbar,
@@ -17,6 +17,10 @@ import {
 import Profile from './../../assets/img/avatar/avatar-1.png';
 
 class Navbar extends React.Component {
+  logout() {
+    this.props.history.push('/auth/login');
+  }
+
   render() {
     return (
       <RSNavbar>
@@ -29,12 +33,12 @@ class Navbar extends React.Component {
                   <div className="d-sm-none d-lg-inline-block">Hi, Novil</div>
                 </span>
               </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem to="/admin/profil" tag={RRDNavLink}>
+              <DropdownMenu tag="ul" right>
+                <DropdownItem tag={'li'} style={{ cursor: 'pointer' }} onClick={() => this.logout()}>
                   <i className="far fa-user"></i> Profil
                 </DropdownItem>
                 <div className="dropdown-divider"></div>
-                <DropdownItem to="/admin/logout" tag={RRDNavLink}>
+                <DropdownItem tag={'li'} style={{ cursor: 'pointer' }} onClick={() => this.logout()}>
                   <span className="text-danger">
                     <i className="fas fa-sign-out-alt"></i> Keluar
                   </span>
@@ -48,4 +52,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

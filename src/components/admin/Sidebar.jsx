@@ -14,10 +14,11 @@ import { sidebar as routes } from './../../routes';
 class Sidebar extends React.Component {
   getRoutes(routes, isSubMenu = false) {
     return routes
-      .filter(route => route.isActive)
+      .filter(route => route.isActive && route.layout === '/admin')
       .map(({ name, path, icon, layout, subMenu = null }, key) => {
         const pathname = `${layout}${path}`;
         const menuToggler = `${name.replace(' ', '')}${uid()}`;
+
         if ( subMenu != null ) {
           return (
             <NavItem key={key} className={`w-100${isSubMenu ? ' ml-2' : ''}`}>
@@ -31,6 +32,7 @@ class Sidebar extends React.Component {
             </NavItem>
           );
         }
+
         return (
           <NavItem key={key} className={`w-100${isSubMenu ? ' ml-2' : ''}`} active={this.isRouteActive(pathname)}>
             <NavLink to={pathname} tag={RRDNavLink}>

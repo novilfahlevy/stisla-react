@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Login from './views/Auth/Login';
+
 export const sidebar = [
   {
     path: '/dasbor',
@@ -8,5 +10,13 @@ export const sidebar = [
     component: () => <h1>Dasbor</h1>,
     layout: '/admin',
     isActive: true
-  }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    icon: '',
+    component: () => <Login />,
+    layout: '/auth',
+    isActive: false
+  },
 ];

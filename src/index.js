@@ -12,11 +12,13 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './assets/js/stisla.js';
 
 import AdminLayout from './layouts/Admin';
+import AuthLayout from './layouts/Auth';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Redirect from="/" to="/admin/dasbor" />
     </Switch>
   </BrowserRouter>,
