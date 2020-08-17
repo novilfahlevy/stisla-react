@@ -1,10 +1,28 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import Navbar from './../components/admin/Navbar';
 import Sidebar from './../components/admin/Sidebar';
 import Footer from './../components/admin/Footer';
 
+import { sidebar as routes } from './../routes';
+
 class Admin extends React.Component {
+  getRoutes(routes) {
+    return routes
+      .filter(route => route.isActive)
+      .map(({ path, layout, component }, key) => {
+        return (
+          <Route
+            exact
+            path={`${layout}${path}`}
+            component={component}
+            key={key}
+          />
+        );
+      });
+  }
+
   render() {
     return (
       <div className="main-wrapper-1">
@@ -17,7 +35,7 @@ class Admin extends React.Component {
               <h1>Halaman</h1>
             </div>
             <div className="section-body">
-              @yield('content')
+              {this.getRoutes(routes)}
             </div>
           </section>
         </div>

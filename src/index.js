@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
 import './assets/css/app.css';
@@ -17,7 +17,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      {/* <Redirect from="/" to="/admin/dashboard" /> */}
+      <Redirect from="/" to="/admin/dasbor" />
     </Switch>
   </BrowserRouter>,
   document.getElementById('app')

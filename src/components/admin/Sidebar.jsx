@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink as RRDNavLink } from 'react-router-dom';
 
 import {
   Nav,
@@ -6,7 +7,24 @@ import {
   NavLink
 } from 'reactstrap';
 
+import { sidebar as routes } from './../../routes';
+
 class Sidebar extends React.Component {
+  getRoutes(routes) {
+    return routes
+      .filter(route => route.isActive)
+      .map(({ name, path, icon, layout }) => {
+        return (
+          <NavItem className="w-100">
+            <NavLink to={`${layout}${path}`} tag={RRDNavLink}>
+              <i className={icon}></i>
+              <span>{name}</span>
+            </NavLink>
+          </NavItem>
+        );
+      });
+  }
+
   render() {
     return (
       <div className="main-sidebar">
@@ -18,26 +36,7 @@ class Sidebar extends React.Component {
             <a href="/">St</a>
           </div>
           <Nav className="sidebar-menu">
-            <NavItem className="w-100">
-              <NavLink href="/">
-                <i className="fas fa-fire"></i><span>Dasbor</span>
-              </NavLink>
-            </NavItem>
-            <NavItem className="w-100">
-              <NavLink href="/">
-                <i className="fas fa-users"></i><span>Pengguna</span>
-              </NavLink>
-            </NavItem>
-            <NavItem className="w-100">
-              <NavLink href="/">
-                <i className="fas fa-user-tie"></i><span>Role</span>
-              </NavLink>
-            </NavItem>
-            <NavItem className="w-100">
-              <NavLink href="/">
-                <i className="fas fa-user-tag"></i><span>Hak Akses</span>
-              </NavLink>
-            </NavItem>
+            {this.getRoutes(routes)}
           </Nav>
         </aside>
       </div>
