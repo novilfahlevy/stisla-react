@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import Navbar from './../components/Admin/Navbar';
 import Sidebar from './../components/Admin/Sidebar';
@@ -24,6 +24,16 @@ class Admin extends React.Component {
       });
   }
 
+  getPageName(routes) {
+    for ( let i = 0; i < routes.length; i++ ) {
+      const { name, layout, path, subMenu = null } = routes[i];
+      if ( subMenu !== null ) {
+        return this.getPageName(subMenu);
+      }
+      return `${layout}${path}` === this.props.location.pathname ? name : 'Page';
+    }
+  }
+
   render() {
     return (
       <div className="main-wrapper-1">
@@ -33,7 +43,7 @@ class Admin extends React.Component {
         <div className="main-content">
           <section className="section">
             <div className="section-header">
-              <h1>Halaman</h1>
+              <h1>{this.getPageName(routes)}</h1>
             </div>
             <div className="section-body">
               {this.getRoutes(routes)}
@@ -46,4 +56,4 @@ class Admin extends React.Component {
   }
 }
 
-export default Admin;
+export default withRouter(Admin);
