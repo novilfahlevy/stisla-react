@@ -5,7 +5,7 @@ import Navbar from './../components/Admin/Navbar';
 import Sidebar from './../components/Admin/Sidebar';
 import Footer from './../components/Admin/Footer';
 
-import { sidebar as routes } from './../routes';
+import routes from './../routes';
 
 class Admin extends React.Component {
   getRoutes(routes) {

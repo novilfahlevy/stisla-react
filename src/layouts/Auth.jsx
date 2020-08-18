@@ -5,7 +5,7 @@ import {
   Container
 } from 'reactstrap';
 
-import { sidebar as routes } from './../routes';
+import routes from './../routes';
 
 class Auth extends React.Component {
   getRoutes(routes) {

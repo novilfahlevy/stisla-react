@@ -9,7 +9,7 @@ import {
   UncontrolledCollapse
 } from 'reactstrap';
 
-import { sidebar as routes } from './../../routes';
+import routes from './../../routes';
 
 class Sidebar extends React.Component {
   getRoutes(routes, isSubMenu = false) {

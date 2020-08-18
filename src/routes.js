@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './views/Auth/Login';
 import Register from './views/Auth/Register';
 
-export const sidebar = [
+export default [
   {
     path: '/dasbor',
     name: 'Dasbor',
