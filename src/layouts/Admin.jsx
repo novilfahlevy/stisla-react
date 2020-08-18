@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 
-import Navbar from './../components/Admin/Navbar';
-import Sidebar from './../components/Admin/Sidebar';
-import Footer from './../components/Admin/Footer';
+import Navbar from '../components/Admin/Navbar';
+import Sidebar from '../components/Admin/Sidebar';
+import Footer from '../components/Admin/Footer';
 
 import routes from './../routes';
 
