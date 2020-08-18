@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Login from './views/Auth/Login';
+import Register from './views/Auth/Register';
 
 export const sidebar = [
   {
@@ -16,6 +17,14 @@ export const sidebar = [
     name: 'Login',
     icon: '',
     component: () => <Login />,
+    layout: '/auth',
+    isActive: false
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    icon: '',
+    component: () => <Register />,
     layout: '/auth',
     isActive: false
   },

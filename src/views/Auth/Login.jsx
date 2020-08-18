@@ -2,6 +2,7 @@ import React from 'react';
 
 import StislaLogo from './../../assets/img/stisla-fill.svg';
 import { Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   render() {
@@ -48,6 +49,8 @@ class Login extends React.Component {
                       Login
                     </button>
                   </div>
+
+                  <p className="mb-0 text-center">Belum punya akun? <Link to="/auth/register">Buat disini.</Link></p>
                 </form>
               </div>
             </div>
