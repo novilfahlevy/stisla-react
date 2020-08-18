@@ -6,6 +6,18 @@ import Register from './views/Auth/Register';
 import Dashboard from './views/Admin/Dashboard';
 import Profile from './views/Admin/Profile';
 
+/*
+  Routes property:
+  - path (string)
+  - name (string)
+  - icon (string)
+  - component (JSX|React Node)
+  - layout (string)
+  - isActive (boolean) *opsional
+  - subMenu (array of object) *opsional
+  - pageName (string) *opsional
+*/
+
 export default [
   {
     path: '/dasbor',

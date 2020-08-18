@@ -27,14 +27,14 @@ class Admin extends React.Component {
   getPageName(routes) {
     routes = routes.filter(route => route.layout === '/admin');
     for ( let i = 0; i < routes.length; i++ ) {
-      const { name, layout, path, subMenu = null } = routes[i];
+      const { name, layout, path, pageName = null, subMenu = null } = routes[i];
 
       if ( subMenu !== null ) {
         return this.getPageName(subMenu);
       }
 
       if ( `${layout}${path}` === this.props.location.pathname ) {
-        return name;
+        return pageName || name;
       } else if ( i === routes.length - 1 ) {
         return 'Halaman';
       } else {
