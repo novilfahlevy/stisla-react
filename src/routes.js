@@ -3,12 +3,14 @@ import React from 'react';
 import Login from './views/Auth/Login';
 import Register from './views/Auth/Register';
 
+import Dashboard from './views/Admin/Dashboard';
+
 export default [
   {
     path: '/dasbor',
     name: 'Dasbor',
     icon: 'fas fa-fire',
-    component: () => <h1>Dasbor</h1>,
+    component: () => <Dashboard />,
     layout: '/admin',
     isActive: true
   },
