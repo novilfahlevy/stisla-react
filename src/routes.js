@@ -4,6 +4,7 @@ import Login from './views/Auth/Login';
 import Register from './views/Auth/Register';
 
 import Dashboard from './views/Admin/Dashboard';
+import Profile from './views/Admin/Profile';
 
 export default [
   {
@@ -13,6 +14,14 @@ export default [
     component: () => <Dashboard />,
     layout: '/admin',
     isActive: true
+  },
+  {
+    path: '/profil',
+    name: 'Profile',
+    icon: '',
+    component: () => <Profile />,
+    layout: '/admin',
+    isActive: false
   },
   {
     path: '/login',

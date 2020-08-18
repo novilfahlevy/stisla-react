@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import {
   Navbar as RSNavbar,
@@ -34,7 +34,7 @@ class Navbar extends React.Component {
                 </span>
               </DropdownToggle>
               <DropdownMenu tag="ul" right>
-                <DropdownItem tag={'li'} style={{ cursor: 'pointer' }} onClick={() => this.logout()}>
+                <DropdownItem to="/admin/profil" tag={Link}>
                   <i className="far fa-user"></i> Profil
                 </DropdownItem>
                 <div className="dropdown-divider"></div>

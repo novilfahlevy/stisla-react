@@ -10,7 +10,7 @@ import routes from './../routes';
 class Admin extends React.Component {
   getRoutes(routes) {
     return routes
-      .filter(route => route.isActive && route.layout === '/admin')
+      .filter(route => route.layout === '/admin')
       .map(({ path, layout, component, subMenu = null }, key) => {
         if ( subMenu !== null ) return this.getRoutes(subMenu);
         return (
@@ -25,13 +25,21 @@ class Admin extends React.Component {
   }
 
   getPageName(routes) {
-    routes = routes.filter(route => route.isActive && route.layout === '/admin');
+    routes = routes.filter(route => route.layout === '/admin');
     for ( let i = 0; i < routes.length; i++ ) {
       const { name, layout, path, subMenu = null } = routes[i];
+
       if ( subMenu !== null ) {
         return this.getPageName(subMenu);
       }
-      return `${layout}${path}` === this.props.location.pathname ? name : 'Page';
+
+      if ( `${layout}${path}` === this.props.location.pathname ) {
+        return name;
+      } else if ( i === routes.length - 1 ) {
+        return 'Halaman';
+      } else {
+        continue;
+      }
     }
   }
 
