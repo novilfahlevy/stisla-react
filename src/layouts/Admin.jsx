@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter, matchPath } from 'react-router-dom';
+import { Route, withRouter, matchPath, Switch } from 'react-router-dom';
 
 import Navbar from '../components/Admin/Navbar';
 import Sidebar from '../components/Admin/Sidebar';
@@ -62,7 +62,7 @@ class Admin extends React.Component {
               <h1>{this.getPageName(routes)}</h1>
             </div>
             <div className="section-body">
-              {this.getRoutes(routes)}
+              <Switch>{this.getRoutes(routes)}</Switch>
             </div>
           </section>
         </div>
