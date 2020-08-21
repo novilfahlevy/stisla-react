@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, matchPath } from 'react-router-dom';
 
 import Navbar from '../components/Admin/Navbar';
 import Sidebar from '../components/Admin/Sidebar';
@@ -26,14 +26,21 @@ class Admin extends React.Component {
 
   getPageName(routes) {
     routes = routes.filter(route => route.layout === '/admin');
+
     for ( let i = 0; i < routes.length; i++ ) {
-      const { name, layout, path, pageName = null, subMenu = null } = routes[i];
+      const { name, layout, path, component, pageName = null, subMenu = null } = routes[i];
+      const reactRouterRoutes = {
+        key: name,
+        exact: true,
+        path: `${layout}${path}`,
+        component: component
+      };
 
       if ( subMenu !== null ) {
         return this.getPageName(subMenu);
       }
-
-      if ( `${layout}${path}` === this.props.location.pathname ) {
+      
+      if ( matchPath(this.props.location.pathname, reactRouterRoutes) ) {
         return pageName || name;
       } else if ( i === routes.length - 1 ) {
         return 'Halaman';
