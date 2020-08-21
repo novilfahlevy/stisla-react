@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import {
   Container
@@ -26,7 +26,7 @@ class Auth extends React.Component {
   render() {
     return (
       <Container className="mt-5">
-        {this.getRoutes(routes)}
+        <Switch>{this.getRoutes(routes)}</Switch>
       </Container>
     );
   }
