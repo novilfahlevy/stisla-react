@@ -37,7 +37,10 @@ class Admin extends React.Component {
       };
 
       if ( subMenu !== null ) {
-        return this.getPageName(subMenu);
+        const menuName = this.getPageName(subMenu);
+        if ( menuName !== 'Halaman' ) {
+          return menuName;
+        }
       }
       
       if ( matchPath(this.props.location.pathname, reactRouterRoutes) ) {
